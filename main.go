@@ -3,23 +3,27 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"strings"
 )
 
 func main() {
 	var line string
-	flag.StringVar(&line, "", "", "")
+	args := os.Args[1:]
+
 	flag.Parse()
-	args := flag.Args()
+
 	if len(args) == 0 {
 		fmt.Println(0)
 	} else {
-		for _, word := range args {
-
-			line += word
+		line = strings.Join(args, "")
+		if line == "" {
+			fmt.Println(0)
+		} else {
+			spl := strings.Split(line, " ")
+			fmt.Println(len(spl))
 		}
-		spl := strings.Split(line, " ")
-		fmt.Println(len(spl))
+
 	}
 
 }
