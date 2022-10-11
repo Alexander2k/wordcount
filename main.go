@@ -7,10 +7,16 @@ import (
 )
 
 func main() {
-	flag.String("", "", "")
+	var line string
+	flag.StringVar(&line, "", "", "")
 	flag.Parse()
 	args := flag.Args()
-	strings.Join(args, "")
-	fmt.Println(len(args))
+	for _, word := range args {
+
+		line += word
+	}
+
+	spl := strings.Split(line, " ")
+	fmt.Println(len(spl))
 
 }
