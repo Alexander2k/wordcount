@@ -11,12 +11,15 @@ func main() {
 	flag.StringVar(&line, "", "", "")
 	flag.Parse()
 	args := flag.Args()
-	for _, word := range args {
+	if len(args) == 0 {
+		fmt.Println(0)
+	} else {
+		for _, word := range args {
 
-		line += word
+			line += word
+		}
+		spl := strings.Split(line, " ")
+		fmt.Println(len(spl))
 	}
-
-	spl := strings.Split(line, " ")
-	fmt.Println(len(spl))
 
 }
