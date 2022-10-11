@@ -1,16 +1,16 @@
 package main
 
 import (
-	"bufio"
+	"flag"
 	"fmt"
-	"os"
 	"strings"
 )
 
 func main() {
 
-	reader := bufio.NewReader(os.Stdin)
-	text, _ := reader.ReadString('\n')
-	s := strings.Split(text, " ")
-	fmt.Println(len(s))
+	flag.Parse()
+	args := flag.Args()
+	strings.Join(args, "")
+	fmt.Println(len(args))
+
 }
